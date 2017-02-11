@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   write_test_result.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
+/*   Updated: 2017/02/11 15:50:26 by aiwanesk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/framework.h"
 
 static char			*convert_enum(int value)
@@ -26,7 +38,8 @@ static int			write_method_result(struct t_list_test *list_result)
 	char	*enum_to_string;
 
 	enum_to_string = convert_enum(list_result->test_result);
-	ft_printf("\t%s test : [%s]\n", list_result->name, convert_enum(list_result->test_result));
+	ft_printf("\t%s test : [%s]\n", list_result->name,
+			convert_enum(list_result->test_result));
 	if (ft_strcmp("OK", convert_enum(list_result->test_result)) == 0)
 		return (1);
 	return (0);

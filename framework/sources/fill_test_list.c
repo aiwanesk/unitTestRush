@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_test_list.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/11 15:49:19 by aiwanesk          #+#    #+#             */
+/*   Updated: 2017/02/11 15:49:49 by aiwanesk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/framework.h"
 
 static void		add_end(struct t_list_test **list, char *name, int (*fun)())
@@ -28,7 +40,8 @@ static void		add_first(struct t_list_test **list, char *name, int (*fun)())
 	(*list) = add;
 }
 
-void			fill_test_list(struct t_list_test **list, char *name, int (*fun)())
+void			fill_test_list(struct t_list_test **list, char *name,
+		int (*fun)())
 {
 	if ((*list) == NULL)
 		add_first(list, name, fun);
