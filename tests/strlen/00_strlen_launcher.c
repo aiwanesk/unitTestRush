@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   00_strlen_launcher.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/11 16:00:12 by aiwanesk          #+#    #+#             */
+/*   Updated: 2017/02/11 16:00:19 by aiwanesk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../lib_test.h"
 
 int			strlen_launcher(void)
 {
-	struct t_list_test	*l;
+	struct s_list_test	*l;
 
 	puts("STRLEN:");
 	fill_test_list(&l, "basic_test", &basic_test);
