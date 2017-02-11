@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 15:54:05 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/11 21:02:53 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static int			write_method_result(struct s_list_test *list_result)
 	ft_printf("\t%s test : [%s]\n", list_result->name,
 			convert_enum(list_result->test_result));
 	if (ft_strcmp("OK", convert_enum(list_result->test_result)) == 0)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 static void			write_number_error(int error)
