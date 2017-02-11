@@ -6,19 +6,19 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:19 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 15:49:49 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/11 15:53:37 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/framework.h"
 
-static void		add_end(struct t_list_test **list, char *name, int (*fun)())
+static void		add_end(struct s_list_test **list, char *name, int (*fun)())
 {
-	struct t_list_test	*add;
-	struct t_list_test	*it;
+	struct s_list_test	*add;
+	struct s_list_test	*it;
 
 	it = (*list);
-	add = (struct t_list_test *)malloc(sizeof(struct t_list_test));
+	add = (struct s_list_test *)malloc(sizeof(struct s_list_test));
 	add->name = ft_strdup(name);
 	add->next = NULL;
 	add->fun = fun;
@@ -28,11 +28,11 @@ static void		add_end(struct t_list_test **list, char *name, int (*fun)())
 	it->next = add;
 }
 
-static void		add_first(struct t_list_test **list, char *name, int (*fun)())
+static void		add_first(struct s_list_test **list, char *name, int (*fun)())
 {
-	struct t_list_test		*add;
+	struct s_list_test		*add;
 
-	add = (struct t_list_test *)malloc(sizeof(struct t_list_test));
+	add = (struct s_list_test *)malloc(sizeof(struct s_list_test));
 	add->name = ft_strdup(name);
 	add->next = NULL;
 	add->fun = fun;
@@ -40,7 +40,7 @@ static void		add_first(struct t_list_test **list, char *name, int (*fun)())
 	(*list) = add;
 }
 
-void			fill_test_list(struct t_list_test **list, char *name,
+void			fill_test_list(struct s_list_test **list, char *name,
 		int (*fun)())
 {
 	if ((*list) == NULL)

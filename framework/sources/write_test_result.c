@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 15:50:26 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/11 15:54:05 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static char			*convert_enum(int value)
 		return ("ERROR");
 }
 
-static void			write_name_of_test_set(struct t_list_test *list_result)
+static void			write_name_of_test_set(struct s_list_test *list_result)
 {
 	ft_printf("Name of test set: %s\n", list_result->name);
 }
 
-static int			write_method_result(struct t_list_test *list_result)
+static int			write_method_result(struct s_list_test *list_result)
 {
 	char	*enum_to_string;
 
@@ -53,7 +53,7 @@ static void			write_number_error(int error)
 		ft_printf("%d error dans le test\n", error);
 }
 
-void				write_test_result(struct t_list_test *list_result){
+void				write_test_result(struct s_list_test *list_result){
 	int		error;
 
 	error = 0;

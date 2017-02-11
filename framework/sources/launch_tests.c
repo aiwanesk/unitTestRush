@@ -6,17 +6,17 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:28 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 15:49:29 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/11 15:53:50 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/framework.h"
 
-int			launch_tests(struct t_list_test **list)
+int			launch_tests(struct s_list_test **list)
 {
 	int						pid;
 	int						error;
-	struct t_list_test		*save_first;
+	struct s_list_test		*save_first;
 
 	error = NONE;
 	save_first = *list;
