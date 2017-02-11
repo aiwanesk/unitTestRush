@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:28 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 19:24:48 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/11 20:04:17 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ t_enum_result	signal_handler(int signo)
 	else if (signo == SIGBUS)
 		return (BUSE);
 	return (OTHER);
+}
+
+t_enum_result	return_handler(int ret)
+{
+	if (ret == 0)
+		return (OK);
+	else
+		return (KO);
 }
 
 int				launch_tests(struct s_list_test **list)
@@ -44,7 +52,7 @@ int				launch_tests(struct s_list_test **list)
 			if (WIFSIGNALED(status))
 				(*list)->test_result = signal_handler(WTERMSIG(status));
 			else if (WIFEXITED(status))
-				(*list)->test_result = signal_handler(WEXITSTATUS(status));
+				(*list)->test_result = return_handler(WEXITSTATUS(status));
 		}
 		else
 		{
