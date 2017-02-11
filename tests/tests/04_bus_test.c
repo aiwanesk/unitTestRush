@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   04_bus_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vfour <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 16:00:23 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 16:00:24 by aiwanesk         ###   ########.fr       */
+/*   Created: 2017/02/11 20:43:34 by vfour             #+#    #+#             */
+/*   Updated: 2017/02/11 20:43:36 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_test.h"
 
-int		basic_test(void)
+int		bus_test(void)
 {
-	if (ft_strlen("Hello") == strlen("Hello"))
+	if (ft_strcpy("truc", "Hello") == strcpy("truc", "Hello"))
 		return (0);
 	else
 		return (1);

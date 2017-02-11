@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   03_segv_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vfour <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 15:59:48 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 20:44:25 by vfour            ###   ########.fr       */
+/*   Created: 2017/02/11 20:43:49 by vfour             #+#    #+#             */
+/*   Updated: 2017/02/11 20:43:50 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_test.h"
+#include "../lib_test.h"
 
-int		main(void)
+int		segv_test(void)
 {
-	tests_launcher();
-	return (0);
+	if (ft_strlen(NULL) == strlen(NULL))
+		return (0);
+	else
+		return (1);
 }

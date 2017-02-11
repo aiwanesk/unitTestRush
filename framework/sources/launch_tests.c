@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:28 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 20:19:14 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/11 20:55:01 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static void				test_handler(struct s_list_test **list)
 		(*list)->test_result = signal_handler(WTERMSIG(status));
 	else if (WIFEXITED(status))
 		(*list)->test_result = return_handler(WEXITSTATUS(status));
+	else
+		(*list)->test_result = OTHER;
 }
 
 int						launch_tests(struct s_list_test **list)
@@ -50,7 +52,6 @@ int						launch_tests(struct s_list_test **list)
 	save_first = *list;
 	while ((*list))
 	{
-		printf("name = %s\n", (*list)->name);
 		if ((pid = fork()) == -1)
 			exit(NONE);
 		else if (pid > 0)
@@ -58,7 +59,6 @@ int						launch_tests(struct s_list_test **list)
 		else
 		{
 			error = (*list)->fun();
-			ft_printf("error = %d\n", error);
 			exit(error);
 		}
 		(*list) = (*list)->next;

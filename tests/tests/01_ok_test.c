@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   01_ok_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vfour <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 16:00:26 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 16:00:27 by aiwanesk         ###   ########.fr       */
+/*   Created: 2017/02/11 20:43:56 by vfour             #+#    #+#             */
+/*   Updated: 2017/02/11 20:43:57 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib_test.h"
 
-int		null_test(void)
+int		ok_test(void)
 {
-	if (ft_strlen(NULL) == strlen(NULL))
+	if (ft_strlen("Hello") == strlen("Hello"))
 		return (0);
 	else
 		return (1);
