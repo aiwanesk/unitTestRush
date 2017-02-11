@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:50:48 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 15:52:15 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/11 19:22:55 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef enum			e_enum_result{
 	KO,
 	SEGV,
 	BUSE,
+	OTHER,
 	NONE
 }						t_enum_result;
 
