@@ -2,11 +2,6 @@
 # include <sys/wait.h>
 # include <signal.h>
 
-typedef enum	t_bool_launcher{
-	TRUE,
-	FALSE
-}				s_bool_launcher;
-
 typedef enum	t_enum_result{
 	OK,
 	KO,
@@ -15,11 +10,13 @@ typedef enum	t_enum_result{
 	NONE
 }				e_enum_result;
 
-typedef struct	t_tree_test{
-	int						bool_is_launcher;
-	int						test_result;
-	char					*test_name;
-	struct t_tree_test		*next;
-}				s_tree_test;
+typedef struct	t_list_test{
+	struct t_list_test	*next;
+	char				*name;
+	int					(*fun)();
+	int					test_result;
+}				s_list_test;
 
-void					write_test_result(struct t_tree_test *list_result);
+void					write_test_result(struct t_list_test *list_result);
+void					fill_test_list(struct t_list_test **list, char *name, int (*fun)(void));
+int						launch_tests(struct t_list_test **list);

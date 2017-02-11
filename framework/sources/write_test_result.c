@@ -16,26 +16,42 @@ static char			*convert_enum(int value)
 		return ("ERROR");
 }
 
-static void			write_name_of_test_set(struct t_tree_test *list_result)
+static void			write_name_of_test_set(struct t_list_test *list_result)
 {
-	ft_printf("Name of test set: %s\n", list_result->test_name);
+	ft_printf("Name of test set: %s\n", list_result->name);
 }
 
-static void			write_method_result(struct t_tree_test *list_result)
+static int			write_method_result(struct t_list_test *list_result)
 {
 	char	*enum_to_string;
 
 	enum_to_string = convert_enum(list_result->test_result);
-	ft_printf("\t%s test : [%s]\n", list_result->test_name, enum_to_string);
+	ft_printf("\t%s test : [%s]\n", list_result->name, convert_enum(list_result->test_result));
+	if (ft_strcmp("OK", convert_enum(list_result->test_result)) == 0)
+		return (1);
+	return (0);
 }
 
-void				write_test_result(struct t_tree_test *list_result){
+static void			write_number_error(int error)
+{
+	if (error != 0)
+		ft_printf("%d error dans le test\n", error);
+	else
+		ft_printf("%d error dans le test\n", error);
+}
+
+void				write_test_result(struct t_list_test *list_result){
+	int		error;
+
+	error = 0;
 	while (list_result)
 	{
-		if (list_result->bool_is_launcher == TRUE)
-			write_name_of_test_set(list_result);
-		else
-			write_method_result(list_result);
+	//inutile je pense puisqu'on va passer le nom du main test dans le launcher
+//		if (list_result->bool_is_launcher == TRUE)
+//			write_name_of_test_set(list_result);
+//		else
+		error += write_method_result(list_result);
 		list_result = list_result->next;
 	}
+	write_number_error(error);
 }
