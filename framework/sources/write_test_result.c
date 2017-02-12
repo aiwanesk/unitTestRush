@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 16:41:04 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/12 17:01:15 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,24 @@ static char			*convert_enum(int value)
 		return ("ERROR");
 }
 
-static void			write_name_of_test_set(struct s_list_test *list_result)
-{
-	ft_printf("Name of test set: %s\n", list_result->name);
-}
-
 static void			write_log(char *s, int val)
 {
 	int			fd;
 	char		*tmp;
+	char		*str;
 
 	tmp = ft_strjoin(tmp, s);
 	tmp = ft_strjoin(tmp, " test : ");
-	tmp = ft_strjoin(tmp, ft_itoa(val));
-	fd = open("log_result", O_APPEND);
+	tmp = ft_strjoin(tmp, convert_enum(val));
+	fd = open("log_result", O_APPEND | O_CREAT | O_WRONLY, 0755);
 	if (fd == 0)
 	{
 		ft_printf("Something went terrible wrong\n");
 		exit(-1);
 	}
 	ft_putendl_fd(tmp, fd);
+	close(fd);
+	ft_printf("%s\n", tmp);
 }
 
 static int			write_method_result(struct s_list_test *list_result)
@@ -76,16 +74,13 @@ static void			write_number_error(int error)
 		ft_printf("%d error dans le test\n", error);
 }
 
-void				write_test_result(struct s_list_test *list_result){
+void				write_test_result(struct s_list_test *list_result)
+{
 	int		error;
 
 	error = 0;
 	while (list_result)
 	{
-	//inutile je pense puisqu'on va passer le nom du main test dans le launcher
-//		if (list_result->bool_is_launcher == TRUE)
-//			write_name_of_test_set(list_result);
-//		else
 		error += write_method_result(list_result);
 		list_result = list_result->next;
 	}

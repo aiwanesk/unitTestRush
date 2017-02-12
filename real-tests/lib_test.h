@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 16:01:44 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 17:02:04 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 17:01:59 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,20 @@
 
 # define LONGSTRING "invraisemblables semblent vrais, car dans cette vie"
 
-int		tests_launcher(void);
-int		ok_test(void);
-int		ko_test(void);
-int		segv_test(void);
-int		bus_test(void);
+int		ft_atoi_launcher(void);
+int		basic_test(void);
+int		neg_test(void);
+int		emptystring_test(void);
+int		intmin_test(void);
+int		intmax_test(void);
+int		overflow_test(void);
+int		zero_test(void);
+int		plusplus_test(void);
+int		plus_test(void);
+int		plusneg_test(void);
+int		negneg_test(void);
+int		negzero_test(void);
+int		pluszero_test(void);
+int		letters_test(void);
 
 #endif
