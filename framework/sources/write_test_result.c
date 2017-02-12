@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 17:01:15 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 17:13:00 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ static void			write_log(char *s, int val)
 	char		*tmp;
 	char		*str;
 
-	tmp = ft_strjoin(tmp, s);
-	tmp = ft_strjoin(tmp, " test : ");
-	tmp = ft_strjoin(tmp, convert_enum(val));
+	str = NULL;
+	tmp = NULL;
+	tmp = ft_strjoin(str, s);
+	str = ft_strjoin(tmp, " test : ");
+	free(tmp);
+	tmp = ft_strjoin(str, convert_enum(val));
+	free(str);
 	fd = open("log_result", O_APPEND | O_CREAT | O_WRONLY, 0755);
 	if (fd == 0)
 	{
@@ -45,7 +49,6 @@ static void			write_log(char *s, int val)
 	}
 	ft_putendl_fd(tmp, fd);
 	close(fd);
-	ft_printf("%s\n", tmp);
 }
 
 static int			write_method_result(struct s_list_test *list_result)
