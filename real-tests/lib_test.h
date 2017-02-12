@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 16:01:44 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 17:01:59 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 17:21:54 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,9 @@ int		negneg_test(void);
 int		negzero_test(void);
 int		pluszero_test(void);
 int		letters_test(void);
+
+int		ft_strlen_launcher(void);
+int		strlenbasic_test(void);
+int		empty_test(void);
 
 #endif

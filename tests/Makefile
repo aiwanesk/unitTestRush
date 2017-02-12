@@ -67,6 +67,7 @@ fclean:
 	@echo "$(CYAN)[$(NAME)]$(RED) Executable deleted.$(NORMAL)"
 	@make fclean -C $(LIB_FTPRINTF)
 	@echo "$(CYAN)[$(NAME)]$(RED) Libft cleaned.$(NORMAL)"
+	@rm -f log_result
 
 test: $(NAME)
 	./$(NAME)

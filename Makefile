@@ -1,82 +1,50 @@
-NAME = lem-in
+.PHONY: clean fclean all re test testfclean testclean testre realtest realtestfclean realtestclean realtestre
 
-HDIR = ./includes/
-SDIR = ./sources/
-ODIR = ./objects/
+all: miniFramework
 
-SRC = parsing.c\
-	  resolve.c\
-	  find_all_path.c\
-	  omg_path.c\
-	  print.c\
-	  compute_path.c\
-	  resolve_2.c\
-	  find_all_path_2.c\
-	  ft_error.c\
-	  parsing_norme.c\
-	  move_ant.c\
-	  move.c\
-	  print_move.c\
-	  move_end.c\
-	  add.c\
-	  single_path.c\
-	  iter_path.c\
-	  random.c\
-	  single_path_2.c\
-	  single_path_3.c\
-	  change_status.c\
+miniFramework:
+	make -C ./framework/
 
-OBJ = $(SRC:.c=.o)
+test:
+	make -C ./printf/
+	make -C ./framework/
+	make -C ./tests/
 
-SRC_C := $(addprefix $(SDIR), $(SRC))
-SRC_O := $(addprefix $(ODIR), $(OBJ))
+testfclean:
+	make fclean -C ./framework/
 
-LIB_FT = -L libft/ -lft
+testclean:
+	make clean -C ./framework/
 
-CC = clang
-FLAGS = -Wall -Wextra -Werror -g
+testre:
+	make re -C ./printf/
+	make re -C ./framework/
+	make re -C ./tests//
 
-RED = \033[31m
-CYAN = \033[36m
-NORMAL = \033[00m
-GREY = \033[90m
+realtest:
+	make -C ./printf/
+	make -C ./framework/
+	make -C ./real-tests/
 
-.PHONY: clean fclean all re propre
+realtestfclean:
+	make fclean -C ./framework/
 
-all: $(NAME)
+realtestclean:
+	make clean -C ./framework/
 
-$(NAME): $(SRC_O)
-	@$(CC) -o $(NAME) $(SRC_O) $(LIB_MLX) $(LIB_FT) $(FRAM)
-	@echo "$(CYAN)[$(NAME)]$(GREY) Executable created.$(NORMAL)"
+realtestre:
+	make re -C ./printf/
+	make re -C ./framework/
+	make re -C ./real-tests//
 
-$(SRC_O): $(SRC_C)
-	@make -C libft/
-	@echo "$(CYAN)[$(NAME)]$(GREY) Libft compiled.$(NORMAL)"
-	@$(CC) $(FLAGS) -c $(SRC_C) -I $(HDIR)
-	@if [ -d $(ODIR) ]; then\
-		echo "$(CYAN)[$(NAME)]$(GREY) Objects Directory already exists.$(NORMAL)";\
-	else\
-		mkdir $(ODIR);\
-	fi
-	@mv $(OBJ) $(ODIR)
-	@echo "$(CYAN)[$(NAME)]$(GREY) Objects created.$(NORMAL)"
-
-re: fclean all
+re:
+	make re -C ./framework/
 
 clean:
-	@rm -f $(SRC_O)
-	@rm -rf $(ODIR)
-	@echo "$(CYAN)[$(NAME)]$(RED) All objects file deleted.$(NORMAL)"
-	@make clean -C libft/
-	@echo "$(CYAN)[$(NAME)]$(RED) Libft cleaned.$(NORMAL)"
+	make clean -C ./framework/
 
 fclean:
-	@rm -f $(SRC_O)
-	@rm -rf $(ODIR)
-	@echo "$(CYAN)[$(NAME)]$(RED) All objects file deleted.$(NORMAL)"
-	@rm -f $(NAME)
-	@echo "$(CYAN)[$(NAME)]$(RED) Executable deleted.$(NORMAL)"
-	@make fclean -C libft/
-	@echo "$(CYAN)[$(NAME)]$(RED) Libft cleaned.$(NORMAL)"
-
-propre: all clean
+	make fclean -C ./framework/
+	make fclean -C ./printf/
+	make fclean -C ./tests/
+	make fclean -C ./real-tests/

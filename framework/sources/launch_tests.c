@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:28 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 20:55:01 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 18:14:32 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ static void				test_handler(struct s_list_test **list)
 		(*list)->test_result = OTHER;
 }
 
+static void				free_struct(struct s_list_test **list)
+{
+	struct s_list_test	*tmp;
+
+	while (*list)
+	{
+		tmp = *list;
+		free((*list)->name);
+		*list = (*list)->next;
+		free(tmp);
+	}
+}
+
 int						launch_tests(struct s_list_test **list)
 {
 	int						pid;
@@ -65,5 +78,7 @@ int						launch_tests(struct s_list_test **list)
 	}
 	(*list) = save_first;
 	write_test_result((*list));
+	(*list) = save_first;
+	free_struct(list);
 	return (error);
 }

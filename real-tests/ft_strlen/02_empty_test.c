@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   02_empty_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vfour <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 15:59:48 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 18:08:50 by vfour            ###   ########.fr       */
+/*   Created: 2017/02/12 17:20:33 by vfour             #+#    #+#             */
+/*   Updated: 2017/02/12 17:20:47 by vfour            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_test.h"
+#include "../lib_test.h"
 
-int		main(void)
+int		empty_test(void)
 {
-	ft_atoi_launcher();
-	ft_strlen_launcher();
-	return (0);
+	if (ft_strlen("") == strlen(""))
+		return (0);
+	else
+		return (1);
 }
