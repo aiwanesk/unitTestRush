@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/12 15:47:50 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2017/02/12 16:41:04 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ static void			write_name_of_test_set(struct s_list_test *list_result)
 	ft_printf("Name of test set: %s\n", list_result->name);
 }
 
+static void			write_log(char *s, int val)
+{
+	int			fd;
+	char		*tmp;
+
+	tmp = ft_strjoin(tmp, s);
+	tmp = ft_strjoin(tmp, " test : ");
+	tmp = ft_strjoin(tmp, ft_itoa(val));
+	fd = open("log_result", O_APPEND);
+	if (fd == 0)
+	{
+		ft_printf("Something went terrible wrong\n");
+		exit(-1);
+	}
+	ft_putendl_fd(tmp, fd);
+}
+
 static int			write_method_result(struct s_list_test *list_result)
 {
 	char	*enum_to_string;
@@ -45,6 +62,7 @@ static int			write_method_result(struct s_list_test *list_result)
 	ft_printf("\t%s test : [%s]\n", list_result->name,
 			convert_enum(list_result->test_result));
 	ft_printf("\033[37m");
+	write_log(list_result->name, list_result->test_result);
 	if (ft_strcmp("OK", convert_enum(list_result->test_result)) == 0)
 		return (0);
 	return (1);

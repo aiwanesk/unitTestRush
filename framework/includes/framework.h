@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:50:48 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 19:22:55 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 16:38:13 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../../printf/includes/ft_printf.h"
 # include <sys/wait.h>
 # include <signal.h>
+# include <fcntl.h>
 
 typedef enum			e_enum_result{
 	OK,
