@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 15:49:32 by aiwanesk          #+#    #+#             */
-/*   Updated: 2017/02/11 21:02:53 by vfour            ###   ########.fr       */
+/*   Updated: 2017/02/12 15:47:50 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@ static int			write_method_result(struct s_list_test *list_result)
 	char	*enum_to_string;
 
 	enum_to_string = convert_enum(list_result->test_result);
+	if (ft_strcmp(enum_to_string, "OK") == 0)
+		ft_printf("\033[32m");
+	else
+		ft_printf("\033[31m");
 	ft_printf("\t%s test : [%s]\n", list_result->name,
 			convert_enum(list_result->test_result));
+	ft_printf("\033[37m");
 	if (ft_strcmp("OK", convert_enum(list_result->test_result)) == 0)
 		return (0);
 	return (1);
