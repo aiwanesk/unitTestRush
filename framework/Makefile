@@ -6,13 +6,13 @@
 #    By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/22 09:46:05 by aiwanesk          #+#    #+#              #
-#    Updated: 2015/09/23 15:09:14 by aiwanesk         ###   ########.fr        #
+#    Updated: 2017/02/12 15:20:21 by vfour            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re, $(LIBFT_PATH)$(LIBFT_NAME)
 
-NAME = miniframework.a
+NAME = libunit.a
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -63,7 +63,7 @@ $(NAME): $(OBJ)
 	@$(AR) rcs $(NAME) $^
 	@echo ""
 	@echo "[\033[32m$(NAME) done\033[0m]"
-	
+
 clean:
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@rm -rf $(OBJ_PATH)
