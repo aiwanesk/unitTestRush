@@ -15,8 +15,7 @@
 NAME = libftprintf.a
 
 CC = gcc
-#CFLAGS = -Wall -Werror -Wextra
-CFLAGS = -g
+CFLAGS = -Wall -Werror -Wextra
 LIBFT_PATH ?= ./libft/
 LIBFT_NAME = libft.a
 

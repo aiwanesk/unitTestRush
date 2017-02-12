@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_test.h"
+#include "../includes/lib_test.h"
 
 int		bus_test(void)
 {

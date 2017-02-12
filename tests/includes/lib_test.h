@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../framework/includes/framework.h"
+#include "../../framework/includes/framework.h"
+#include "../../printf/libft/includes/libft.h"
 #include <string.h>
 
 #define LONGSTRING "invraisemblables semblent vrais, car dans cette vie"
